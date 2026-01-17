@@ -5,7 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 
-// КОНСТАНТЫ И СТРУКТУРЫ
+// РљРћРќРЎРўРђРќРўР« Р РЎРўР РЈРљРўРЈР Р«
 
 #define MAX_NAME_LEN 25
 #define MAX_OS_LEN 20
@@ -14,23 +14,23 @@
 #define FILENAME_LEN 50
 #define MAX_RECORDS 100
 
-// Структура для хранения данных о компьютере
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РґР°РЅРЅС‹С… Рѕ РєРѕРјРїСЊСЋС‚РµСЂРµ
 typedef struct {
-    char processor[MAX_NAME_LEN];          // Процессор
-    int ram_size;                          // Объем оперативной памяти (ГБ)
-    char manufacturer[MAX_NAME_LEN];       // Производитель компьютера
-    int is_gaming;                         // Игровой компьютер (1-да, 0-нет)
-    char cpu_family[MAX_FAMILY_LEN];       // Семейство процессоров
-    char gpu_model[MAX_GPU_MODEL_LEN];     // Модель дискретной видеокарты
-    char os[MAX_OS_LEN];                   // Операционная система
-    int ssd_size;                          // Объем SSD (ГБ)
-    int vram_size;                         // Объем видеопамяти (ГБ)
-    float cpu_clock_speed;                 // Тактовая частота процессора (ГГц)
+    char processor[MAX_NAME_LEN];          // РџСЂРѕС†РµСЃСЃРѕСЂ
+    int ram_size;                          // РћР±СЉРµРј РѕРїРµСЂР°С‚РёРІРЅРѕР№ РїР°РјСЏС‚Рё (Р“Р‘)
+    char manufacturer[MAX_NAME_LEN];       // РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ РєРѕРјРїСЊСЋС‚РµСЂР°
+    int is_gaming;                         // РРіСЂРѕРІРѕР№ РєРѕРјРїСЊСЋС‚РµСЂ (1-РґР°, 0-РЅРµС‚)
+    char cpu_family[MAX_FAMILY_LEN];       // РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ
+    char gpu_model[MAX_GPU_MODEL_LEN];     // РњРѕРґРµР»СЊ РґРёСЃРєСЂРµС‚РЅРѕР№ РІРёРґРµРѕРєР°СЂС‚С‹
+    char os[MAX_OS_LEN];                   // РћРїРµСЂР°С†РёРѕРЅРЅР°СЏ СЃРёСЃС‚РµРјР°
+    int ssd_size;                          // РћР±СЉРµРј SSD (Р“Р‘)
+    int vram_size;                         // РћР±СЉРµРј РІРёРґРµРѕРїР°РјСЏС‚Рё (Р“Р‘)
+    float cpu_clock_speed;                 // РўР°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р° РїСЂРѕС†РµСЃСЃРѕСЂР° (Р“Р“С†)
 } Computer;
 
-// ПРОТОТИПЫ ФУНКЦИЙ
+// РџР РћРўРћРўРРџР« Р¤РЈРќРљР¦РР™
 
-// Основные функции программы
+// РћСЃРЅРѕРІРЅС‹Рµ С„СѓРЅРєС†РёРё РїСЂРѕРіСЂР°РјРјС‹
 void print_welcome_message(void);
 void fill_computer_data(Computer* pc);
 void print_all_computers(Computer* computers, int count);
@@ -42,16 +42,16 @@ void modify_record_in_file(void);
 void add_records_to_file(void);
 void view_file_contents(void);
 
-// Вспомогательные функции
+// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
 void clear_input_buffer(void);
 int get_valid_int(const char* prompt, int min_val);
 float get_valid_float(const char* prompt, float min_val);
 int get_yes_no(const char* prompt);
 void print_computer_table(Computer* computers, int count);
 void trim_string(char* str);
-void print_search_results(Computer* computers, int count, const char* message);  // ДОБАВЛЕНО
+void print_search_results(Computer* computers, int count, const char* message);  // Р”РћР‘РђР’Р›Р•РќРћ
 
-// Функции сравнения для сортировки 
+// Р¤СѓРЅРєС†РёРё СЃСЂР°РІРЅРµРЅРёСЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё 
 int compare_processor(const void* a, const void* b);
 int compare_gaming(const void* a, const void* b);
 
@@ -67,15 +67,15 @@ int main() {
     print_welcome_message();
 
     do {
-        printf("\n=== ГЛАВНОЕ МЕНЮ ===\n");
-        printf("1. Создание и сохранение новой записи\n");
-        printf("2. Поиск записи по заданным полям\n");
-        printf("3. Работа с файлами (сохранение/загрузка/просмотр)\n");
-        printf("4. Печать всех записей с сортировкой\n");
-        printf("5. Изменение записи в файле\n");
-        printf("6. Добавление новых записей в файл\n");
-        printf("0. Выход\n");
-        printf("Выберите действие (0-6): ");
+        printf("\n=== Р“Р›РђР’РќРћР• РњР•РќР® ===\n");
+        printf("1. РЎРѕР·РґР°РЅРёРµ Рё СЃРѕС…СЂР°РЅРµРЅРёРµ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё\n");
+        printf("2. РџРѕРёСЃРє Р·Р°РїРёСЃРё РїРѕ Р·Р°РґР°РЅРЅС‹Рј РїРѕР»СЏРј\n");
+        printf("3. Р Р°Р±РѕС‚Р° СЃ С„Р°Р№Р»Р°РјРё (СЃРѕС…СЂР°РЅРµРЅРёРµ/Р·Р°РіСЂСѓР·РєР°/РїСЂРѕСЃРјРѕС‚СЂ)\n");
+        printf("4. РџРµС‡Р°С‚СЊ РІСЃРµС… Р·Р°РїРёСЃРµР№ СЃ СЃРѕСЂС‚РёСЂРѕРІРєРѕР№\n");
+        printf("5. РР·РјРµРЅРµРЅРёРµ Р·Р°РїРёСЃРё РІ С„Р°Р№Р»Рµ\n");
+        printf("6. Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІС‹С… Р·Р°РїРёСЃРµР№ РІ С„Р°Р№Р»\n");
+        printf("0. Р’С‹С…РѕРґ\n");
+        printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ (0-6): ");
 
         scanf("%d", &choice);
         clear_input_buffer();
@@ -83,78 +83,78 @@ int main() {
         switch (choice) {
         case 1: {
             int num_records;
-            printf("Сколько записей создать? (макс. %d): ", MAX_RECORDS);
+            printf("РЎРєРѕР»СЊРєРѕ Р·Р°РїРёСЃРµР№ СЃРѕР·РґР°С‚СЊ? (РјР°РєСЃ. %d): ", MAX_RECORDS);
             scanf("%d", &num_records);
             clear_input_buffer();
 
             if (num_records <= 0 || num_records > MAX_RECORDS) {
-                printf("Некорректное количество записей!\n");
+                printf("РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№!\n");
                 break;
             }
 
             for (int i = 0; i < num_records; i++) {
-                printf("\n=== Запись %d из %d ===\n", i + 1, num_records);
+                printf("\n=== Р—Р°РїРёСЃСЊ %d РёР· %d ===\n", i + 1, num_records);
                 fill_computer_data(&computers[i]);
             }
             count = num_records;
 
-            printf("\n=== Созданные записи ===\n");
+            printf("\n=== РЎРѕР·РґР°РЅРЅС‹Рµ Р·Р°РїРёСЃРё ===\n");
             print_all_computers(computers, count);
 
-            // Сразу предлагаем сохранить
-            printf("\nСохранить созданные записи в файл? (y/n): ");
+            // РЎСЂР°Р·Сѓ РїСЂРµРґР»Р°РіР°РµРј СЃРѕС…СЂР°РЅРёС‚СЊ
+            printf("\nРЎРѕС…СЂР°РЅРёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Рµ Р·Р°РїРёСЃРё РІ С„Р°Р№Р»? (y/n): ");
             char save_choice;
             scanf(" %c", &save_choice);
             clear_input_buffer();
 
             if (save_choice == 'y' || save_choice == 'Y') {
                 char filename[FILENAME_LEN];
-                printf("Введите имя файла для сохранения: ");
+                printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ: ");
                 fgets(filename, FILENAME_LEN, stdin);
                 trim_string(filename);
                 save_to_file(filename, computers, count);
-                printf("Записи сохранены в файл '%s'\n", filename);
+                printf("Р—Р°РїРёСЃРё СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р» '%s'\n", filename);
             }
             break;
         }
 
         case 2: {
-            // Поиск работает непосредственно в файле
+            // РџРѕРёСЃРє СЂР°Р±РѕС‚Р°РµС‚ РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ РІ С„Р°Р№Р»Рµ
             search_in_file();
             break;
         }
 
         case 3: {
             int file_choice;
-            printf("\n=== РАБОТА С ФАЙЛАМИ ===\n");
-            printf("1. Сохранить текущие данные из памяти в файл\n");
-            printf("2. Загрузить данные из файла в память\n");
-            printf("3. Просмотреть содержимое файла (без загрузки в память)\n");
-            printf("Выберите действие (1-3): ");
+            printf("\n=== Р РђР‘РћРўРђ РЎ Р¤РђР™Р›РђРњР ===\n");
+            printf("1. РЎРѕС…СЂР°РЅРёС‚СЊ С‚РµРєСѓС‰РёРµ РґР°РЅРЅС‹Рµ РёР· РїР°РјСЏС‚Рё РІ С„Р°Р№Р»\n");
+            printf("2. Р—Р°РіСЂСѓР·РёС‚СЊ РґР°РЅРЅС‹Рµ РёР· С„Р°Р№Р»Р° РІ РїР°РјСЏС‚СЊ\n");
+            printf("3. РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ С„Р°Р№Р»Р° (Р±РµР· Р·Р°РіСЂСѓР·РєРё РІ РїР°РјСЏС‚СЊ)\n");
+            printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ (1-3): ");
             scanf("%d", &file_choice);
             clear_input_buffer();
 
             if (file_choice == 1) {
                 if (count == 0) {
-                    printf("Нет данных в памяти для сохранения!\n");
+                    printf("РќРµС‚ РґР°РЅРЅС‹С… РІ РїР°РјСЏС‚Рё РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ!\n");
                     break;
                 }
 
                 char filename[FILENAME_LEN];
-                printf("Введите имя файла для сохранения: ");
+                printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ: ");
                 fgets(filename, FILENAME_LEN, stdin);
                 trim_string(filename);
                 save_to_file(filename, computers, count);
-                printf("Данные сохранены в файл '%s'\n", filename);
+                printf("Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р» '%s'\n", filename);
             }
             else if (file_choice == 2) {
                 char filename[FILENAME_LEN];
-                printf("Введите имя файла для загрузки: ");
+                printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ Р·Р°РіСЂСѓР·РєРё: ");
                 fgets(filename, FILENAME_LEN, stdin);
                 trim_string(filename);
                 count = load_from_file(filename, computers, MAX_RECORDS);
                 if (count > 0) {
-                    printf("Загружено %d записей в память\n", count);
+                    printf("Р—Р°РіСЂСѓР¶РµРЅРѕ %d Р·Р°РїРёСЃРµР№ РІ РїР°РјСЏС‚СЊ\n", count);
                     print_all_computers(computers, count);
                 }
             }
@@ -162,13 +162,13 @@ int main() {
                 view_file_contents();
             }
             else {
-                printf("Неверный выбор!\n");
+                printf("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ!\n");
             }
             break;
         }
 
         case 4: {
-            // Сортировка работает непосредственно с файлом
+            // РЎРѕСЂС‚РёСЂРѕРІРєР° СЂР°Р±РѕС‚Р°РµС‚ РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ СЃ С„Р°Р№Р»РѕРј
             sort_and_print_from_file();
             break;
         }
@@ -184,29 +184,29 @@ int main() {
         }
 
         case 0:
-            printf("Выход из программы...\n");
+            printf("Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹...\n");
             break;
 
         default:
-            printf("Неверный выбор! Введите число от 0 до 6.\n");
+            printf("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ! Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 0 РґРѕ 6.\n");
         }
     } while (choice != 0);
 
     return 0;
 }
 
-// ОПРЕДЕЛЕНИЯ ФУНКЦИЙ 
+// РћРџР Р•Р”Р•Р›Р•РќРРЇ Р¤РЈРќРљР¦РР™ 
 
 void print_welcome_message(void) {
     printf("=============================================\n");
-    printf("  ПРОГРАММА БАЗЫ ДАННЫХ ПЕРСОНАЛЬНЫХ КОМПЬЮТЕРОВ\n");
+    printf("  РџР РћР“Р РђРњРњРђ Р‘РђР—Р« Р”РђРќРќР«РҐ РџР•Р РЎРћРќРђР›Р¬РќР«РҐ РљРћРњРџР¬Р®РўР•Р РћР’\n");
     printf("=============================================\n");
-    printf("Программа предназначена для работы с записями\n");
-    printf("данных о персональных компьютерах:\n");
-    printf("- Создание и редактирование записей\n");
-    printf("- Поиск по процессору и объему ОЗУ\n");
-    printf("- Сортировка по процессору и игровому статусу\n");
-    printf("- Сохранение и загрузка из файлов\n");
+    printf("РџСЂРѕРіСЂР°РјРјР° РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Р·Р°РїРёСЃСЏРјРё\n");
+    printf("РґР°РЅРЅС‹С… Рѕ РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РєРѕРјРїСЊСЋС‚РµСЂР°С…:\n");
+    printf("- РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°РїРёСЃРµР№\n");
+    printf("- РџРѕРёСЃРє РїРѕ РїСЂРѕС†РµСЃСЃРѕСЂСѓ Рё РѕР±СЉРµРјСѓ РћР—РЈ\n");
+    printf("- РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РїСЂРѕС†РµСЃСЃРѕСЂСѓ Рё РёРіСЂРѕРІРѕРјСѓ СЃС‚Р°С‚СѓСЃСѓ\n");
+    printf("- РЎРѕС…СЂР°РЅРµРЅРёРµ Рё Р·Р°РіСЂСѓР·РєР° РёР· С„Р°Р№Р»РѕРІ\n");
     printf("=============================================\n\n");
 }
 
@@ -223,7 +223,7 @@ int get_valid_int(const char* prompt, int min_val) {
             clear_input_buffer();
             return value;
         }
-        printf("Ошибка! Введите целое число >= %d\n", min_val);
+        printf("РћС€РёР±РєР°! Р’РІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ >= %d\n", min_val);
         clear_input_buffer();
     }
 }
@@ -236,7 +236,7 @@ float get_valid_float(const char* prompt, float min_val) {
             clear_input_buffer();
             return value;
         }
-        printf("Ошибка! Введите число >= %.1f\n", min_val);
+        printf("РћС€РёР±РєР°! Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ >= %.1f\n", min_val);
         clear_input_buffer();
     }
 }
@@ -253,7 +253,7 @@ int get_yes_no(const char* prompt) {
         else if (input == 'n' || input == 'N')
             return 0;
         else
-            printf("Ошибка! Введите 'y' или 'n'\n");
+            printf("РћС€РёР±РєР°! Р’РІРµРґРёС‚Рµ 'y' РёР»Рё 'n'\n");
     }
 }
 
@@ -268,20 +268,20 @@ void trim_string(char* str) {
 void print_search_results(Computer* computers, int count, const char* message) {
     if (count == 0) {
         printf("\n+---------------------------------------------------------------------------------------------------------------------------+\n");
-        printf("|                                              ЗАПИСИ НЕ НАЙДЕНЫ                                                              |\n");
+        printf("|                                              Р—РђРџРРЎР РќР• РќРђР™Р”Р•РќР«                                                              |\n");
         printf("+---------------------------------------------------------------------------------------------------------------------------+\n");
         return;
     }
 
     printf("\n%s\n", message);
     print_computer_table(computers, count);
-    printf("Найдено записей: %d\n", count);
+    printf("РќР°Р№РґРµРЅРѕ Р·Р°РїРёСЃРµР№: %d\n", count);
 }
 
-// Функция для просмотра содержимого файла
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРѕРґРµСЂР¶РёРјРѕРіРѕ С„Р°Р№Р»Р°
 void view_file_contents(void) {
     char filename[FILENAME_LEN];
-    printf("Введите имя файла для просмотра: ");
+    printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР°: ");
     fgets(filename, FILENAME_LEN, stdin);
     trim_string(filename);
 
@@ -289,58 +289,58 @@ void view_file_contents(void) {
     int temp_count = load_from_file(filename, temp_computers, MAX_RECORDS);
 
     if (temp_count == 0) {
-        printf("Файл пуст, не существует или содержит ошибки!\n");
+        printf("Р¤Р°Р№Р» РїСѓСЃС‚, РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РёР»Рё СЃРѕРґРµСЂР¶РёС‚ РѕС€РёР±РєРё!\n");
         return;
     }
 
-    printf("\n=== СОДЕРЖИМОЕ ФАЙЛА '%s' ===\n", filename);
+    printf("\n=== РЎРћР”Р•Р Р–РРњРћР• Р¤РђР™Р›Рђ '%s' ===\n", filename);
     print_all_computers(temp_computers, temp_count);
-    printf("Всего записей в файле: %d\n", temp_count);
+    printf("Р’СЃРµРіРѕ Р·Р°РїРёСЃРµР№ РІ С„Р°Р№Р»Рµ: %d\n", temp_count);
 }
 
 void fill_computer_data(Computer* pc) {
-    printf("Введите процессор (например, Intel Core i5): ");
+    printf("Р’РІРµРґРёС‚Рµ РїСЂРѕС†РµСЃСЃРѕСЂ (РЅР°РїСЂРёРјРµСЂ, Intel Core i5): ");
     fgets(pc->processor, MAX_NAME_LEN, stdin);
     trim_string(pc->processor);
 
-    pc->ram_size = get_valid_int("Объем оперативной памяти (ГБ): ", 1);
+    pc->ram_size = get_valid_int("РћР±СЉРµРј РѕРїРµСЂР°С‚РёРІРЅРѕР№ РїР°РјСЏС‚Рё (Р“Р‘): ", 1);
 
-    printf("Введите производителя компьютера (Dell, HP, Lenovo, Asus и т.д.): ");
+    printf("Р’РІРµРґРёС‚Рµ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ РєРѕРјРїСЊСЋС‚РµСЂР° (Dell, HP, Lenovo, Asus Рё С‚.Рґ.): ");
     fgets(pc->manufacturer, MAX_NAME_LEN, stdin);
     trim_string(pc->manufacturer);
 
-    pc->is_gaming = get_yes_no("Игровой компьютер?");
+    pc->is_gaming = get_yes_no("РРіСЂРѕРІРѕР№ РєРѕРјРїСЊСЋС‚РµСЂ?");
 
-    printf("Введите семейство процессоров (например, Core i3, Ryzen 5): ");
+    printf("Р’РІРµРґРёС‚Рµ СЃРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ (РЅР°РїСЂРёРјРµСЂ, Core i3, Ryzen 5): ");
     fgets(pc->cpu_family, MAX_FAMILY_LEN, stdin);
     trim_string(pc->cpu_family);
 
-    printf("Введите модель видеокарты (например, NVIDIA GeForce RTX 3060): ");
+    printf("Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ РІРёРґРµРѕРєР°СЂС‚С‹ (РЅР°РїСЂРёРјРµСЂ, NVIDIA GeForce RTX 3060): ");
     fgets(pc->gpu_model, MAX_GPU_MODEL_LEN, stdin);
     trim_string(pc->gpu_model);
 
-    printf("Введите операционную систему (например, Windows 10, Linux): ");
+    printf("Р’РІРµРґРёС‚Рµ РѕРїРµСЂР°С†РёРѕРЅРЅСѓСЋ СЃРёСЃС‚РµРјСѓ (РЅР°РїСЂРёРјРµСЂ, Windows 10, Linux): ");
     fgets(pc->os, MAX_OS_LEN, stdin);
     trim_string(pc->os);
 
-    pc->ssd_size = get_valid_int("Объем SSD (ГБ, 0 если нет SSD): ", 0);
-    pc->vram_size = get_valid_int("Объем видеопамяти (ГБ): ", 0);
-    pc->cpu_clock_speed = get_valid_float("Тактовая частота процессора (ГГц): ", 0.1);
+    pc->ssd_size = get_valid_int("РћР±СЉРµРј SSD (Р“Р‘, 0 РµСЃР»Рё РЅРµС‚ SSD): ", 0);
+    pc->vram_size = get_valid_int("РћР±СЉРµРј РІРёРґРµРѕРїР°РјСЏС‚Рё (Р“Р‘): ", 0);
+    pc->cpu_clock_speed = get_valid_float("РўР°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р° РїСЂРѕС†РµСЃСЃРѕСЂР° (Р“Р“С†): ", 0.1);
 }
 
 void print_computer_table(Computer* computers, int count) {
     if (count == 0) {
-        printf("Нет записей для отображения.\n");
+        printf("РќРµС‚ Р·Р°РїРёСЃРµР№ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ.\n");
         return;
     }
 
     printf("\n");
     printf("+------------------------+------+-----------------+-----+------------------+----------------------+------------------+------+------+--------+\n");
-    printf("| Процессор              | ОЗУ  | Производитель   | Игр.| Семейство CPU    | Видеокарта           | ОС               | SSD  | VRAM | Частота|\n");
+    printf("| РџСЂРѕС†РµСЃСЃРѕСЂ              | РћР—РЈ  | РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ   | РРіСЂ.| РЎРµРјРµР№СЃС‚РІРѕ CPU    | Р’РёРґРµРѕРєР°СЂС‚Р°           | РћРЎ               | SSD  | VRAM | Р§Р°СЃС‚РѕС‚Р°|\n");
     printf("+------------------------+------+-----------------+-----+------------------+----------------------+------------------+------+------+--------+\n");
 
     for (int i = 0; i < count; i++) {
-        // Обрезаем строки до максимальной длины для корректного отображения
+        // РћР±СЂРµР·Р°РµРј СЃС‚СЂРѕРєРё РґРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РґР»РёРЅС‹ РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
         char processor_display[26];
         char manufacturer_display[26];
         char cpu_family_display[26];
@@ -381,10 +381,10 @@ void print_all_computers(Computer* computers, int count) {
     print_computer_table(computers, count);
 }
 
-// Поиск в файле по процессору и объему ОЗУ
+// РџРѕРёСЃРє РІ С„Р°Р№Р»Рµ РїРѕ РїСЂРѕС†РµСЃСЃРѕСЂСѓ Рё РѕР±СЉРµРјСѓ РћР—РЈ
 void search_in_file(void) {
     char filename[FILENAME_LEN];
-    printf("Введите имя файла для поиска: ");
+    printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ РїРѕРёСЃРєР°: ");
     fgets(filename, FILENAME_LEN, stdin);
     trim_string(filename);
 
@@ -392,22 +392,22 @@ void search_in_file(void) {
     int temp_count = load_from_file(filename, temp_computers, MAX_RECORDS);
 
     if (temp_count == 0) {
-        printf("Файл пуст или не существует!\n");
+        printf("Р¤Р°Р№Р» РїСѓСЃС‚ РёР»Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\n");
         return;
     }
 
     int search_choice;
-    printf("\n=== ПОИСК ЗАПИСЕЙ ===\n");
-    printf("1. По процессору\n");
-    printf("2. По объему оперативной памяти\n");
-    printf("3. По обоим полям одновременно\n");
-    printf("Выберите тип поиска (1-3): ");
+    printf("\n=== РџРћРРЎРљ Р—РђРџРРЎР•Р™ ===\n");
+    printf("1. РџРѕ РїСЂРѕС†РµСЃСЃРѕСЂСѓ\n");
+    printf("2. РџРѕ РѕР±СЉРµРјСѓ РѕРїРµСЂР°С‚РёРІРЅРѕР№ РїР°РјСЏС‚Рё\n");
+    printf("3. РџРѕ РѕР±РѕРёРј РїРѕР»СЏРј РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ\n");
+    printf("Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї РїРѕРёСЃРєР° (1-3): ");
     scanf("%d", &search_choice);
     clear_input_buffer();
 
     if (search_choice == 1) {
         char processor[MAX_NAME_LEN];
-        printf("Введите процессор для поиска: ");
+        printf("Р’РІРµРґРёС‚Рµ РїСЂРѕС†РµСЃСЃРѕСЂ РґР»СЏ РїРѕРёСЃРєР°: ");
         fgets(processor, MAX_NAME_LEN, stdin);
         trim_string(processor);
 
@@ -421,12 +421,12 @@ void search_in_file(void) {
         }
 
         char message[100];
-        snprintf(message, sizeof(message), "=== РЕЗУЛЬТАТЫ ПОИСКА ПО ПРОЦЕССОРУ '%s' ===", processor);
+        snprintf(message, sizeof(message), "=== Р Р•Р—РЈР›Р¬РўРђРўР« РџРћРРЎРљРђ РџРћ РџР РћР¦Р•РЎРЎРћР РЈ '%s' ===", processor);
         print_search_results(results, result_count, message);
     }
     else if (search_choice == 2) {
         int ram_size;
-        printf("Введите объем оперативной памяти для поиска: ");
+        printf("Р’РІРµРґРёС‚Рµ РѕР±СЉРµРј РѕРїРµСЂР°С‚РёРІРЅРѕР№ РїР°РјСЏС‚Рё РґР»СЏ РїРѕРёСЃРєР°: ");
         scanf("%d", &ram_size);
         clear_input_buffer();
 
@@ -440,18 +440,18 @@ void search_in_file(void) {
         }
 
         char message[100];
-        snprintf(message, sizeof(message), "=== РЕЗУЛЬТАТЫ ПОИСКА ПО ОБЪЕМУ ОЗУ '%d ГБ' ===", ram_size);
+        snprintf(message, sizeof(message), "=== Р Р•Р—РЈР›Р¬РўРђРўР« РџРћРРЎРљРђ РџРћ РћР‘РЄР•РњРЈ РћР—РЈ '%d Р“Р‘' ===", ram_size);
         print_search_results(results, result_count, message);
     }
     else if (search_choice == 3) {
         char processor[MAX_NAME_LEN];
         int ram_size;
 
-        printf("Введите процессор для поиска: ");
+        printf("Р’РІРµРґРёС‚Рµ РїСЂРѕС†РµСЃСЃРѕСЂ РґР»СЏ РїРѕРёСЃРєР°: ");
         fgets(processor, MAX_NAME_LEN, stdin);
         trim_string(processor);
 
-        printf("Введите объем оперативной памяти для поиска: ");
+        printf("Р’РІРµРґРёС‚Рµ РѕР±СЉРµРј РѕРїРµСЂР°С‚РёРІРЅРѕР№ РїР°РјСЏС‚Рё РґР»СЏ РїРѕРёСЃРєР°: ");
         scanf("%d", &ram_size);
         clear_input_buffer();
 
@@ -466,23 +466,23 @@ void search_in_file(void) {
         }
 
         char message[100];
-        snprintf(message, sizeof(message), "=== РЕЗУЛЬТАТЫ ПОИСКА ПО ПРОЦЕССОРУ '%s' И ОЗУ '%d ГБ' ===",
+        snprintf(message, sizeof(message), "=== Р Р•Р—РЈР›Р¬РўРђРўР« РџРћРРЎРљРђ РџРћ РџР РћР¦Р•РЎРЎРћР РЈ '%s' Р РћР—РЈ '%d Р“Р‘' ===",
             processor, ram_size);
         print_search_results(results, result_count, message);
     }
     else {
-        printf("Неверный выбор!\n");
+        printf("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ!\n");
     }
 }
 
 void save_to_file(const char* filename, Computer* computers, int count) {
     FILE* file = fopen(filename, "w");
     if (!file) {
-        printf("Ошибка открытия файла '%s' для записи!\n", filename);
+        printf("РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° '%s' РґР»СЏ Р·Р°РїРёСЃРё!\n", filename);
         return;
     }
 
-    fprintf(file, "Процессор,ОЗУ(ГБ),Производитель,Игровой,Семейство_CPU,Видеокарта,ОС,SSD(ГБ),VRAM(ГБ),Частота(ГГц)\n");
+    fprintf(file, "РџСЂРѕС†РµСЃСЃРѕСЂ,РћР—РЈ(Р“Р‘),РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ,РРіСЂРѕРІРѕР№,РЎРµРјРµР№СЃС‚РІРѕ_CPU,Р’РёРґРµРѕРєР°СЂС‚Р°,РћРЎ,SSD(Р“Р‘),VRAM(Р“Р‘),Р§Р°СЃС‚РѕС‚Р°(Р“Р“С†)\n");
 
     for (int i = 0; i < count; i++) {
         fprintf(file, "%s,%d,%s,%d,%s,%s,%s,%d,%d,%.1f\n",
@@ -499,13 +499,13 @@ void save_to_file(const char* filename, Computer* computers, int count) {
     }
 
     fclose(file);
-    printf("Данные успешно сохранены в файл '%s' (%d записей)\n", filename, count);
+    printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹ РІ С„Р°Р№Р» '%s' (%d Р·Р°РїРёСЃРµР№)\n", filename, count);
 }
 
 int load_from_file(const char* filename, Computer* computers, int max_count) {
     FILE* file = fopen(filename, "r");
     if (!file) {
-        printf("Ошибка открытия файла '%s' для чтения!\n", filename);
+        printf("РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° '%s' РґР»СЏ С‡С‚РµРЅРёСЏ!\n", filename);
         return 0;
     }
 
@@ -568,7 +568,7 @@ int load_from_file(const char* filename, Computer* computers, int max_count) {
     return loaded;
 }
 
-// Функции сравнения для сортировки
+// Р¤СѓРЅРєС†РёРё СЃСЂР°РІРЅРµРЅРёСЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 int compare_processor(const void* a, const void* b) {
     return strcmp(((Computer*)a)->processor, ((Computer*)b)->processor);
 }
@@ -577,10 +577,10 @@ int compare_gaming(const void* a, const void* b) {
     return ((Computer*)a)->is_gaming - ((Computer*)b)->is_gaming;
 }
 
-// Сортировка из файла
+// РЎРѕСЂС‚РёСЂРѕРІРєР° РёР· С„Р°Р№Р»Р°
 void sort_and_print_from_file(void) {
     char filename[FILENAME_LEN];
-    printf("Введите имя файла для сортировки: ");
+    printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё: ");
     fgets(filename, FILENAME_LEN, stdin);
     trim_string(filename);
 
@@ -588,36 +588,36 @@ void sort_and_print_from_file(void) {
     int temp_count = load_from_file(filename, temp_computers, MAX_RECORDS);
 
     if (temp_count == 0) {
-        printf("Файл пуст или не существует!\n");
+        printf("Р¤Р°Р№Р» РїСѓСЃС‚ РёР»Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\n");
         return;
     }
 
     int sort_choice;
-    printf("\n=== СОРТИРОВКА ЗАПИСЕЙ ===\n");
-    printf("1. По процессору (алфавитный порядок)\n");
-    printf("2. По игровому статусу (сначала неигровые, потом игровые)\n");
-    printf("Выберите тип сортировки (1-2): ");
+    printf("\n=== РЎРћР РўРР РћР’РљРђ Р—РђРџРРЎР•Р™ ===\n");
+    printf("1. РџРѕ РїСЂРѕС†РµСЃСЃРѕСЂСѓ (Р°Р»С„Р°РІРёС‚РЅС‹Р№ РїРѕСЂСЏРґРѕРє)\n");
+    printf("2. РџРѕ РёРіСЂРѕРІРѕРјСѓ СЃС‚Р°С‚СѓСЃСѓ (СЃРЅР°С‡Р°Р»Р° РЅРµРёРіСЂРѕРІС‹Рµ, РїРѕС‚РѕРј РёРіСЂРѕРІС‹Рµ)\n");
+    printf("Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї СЃРѕСЂС‚РёСЂРѕРІРєРё (1-2): ");
     scanf("%d", &sort_choice);
     clear_input_buffer();
 
     if (sort_choice == 1) {
         qsort(temp_computers, temp_count, sizeof(Computer), compare_processor);
-        printf("\n=== ОТСОРТИРОВАННЫЕ ЗАПИСИ (ПО ПРОЦЕССОРУ) ===\n");
+        printf("\n=== РћРўРЎРћР РўРР РћР’РђРќРќР«Р• Р—РђРџРРЎР (РџРћ РџР РћР¦Р•РЎРЎРћР РЈ) ===\n");
         print_all_computers(temp_computers, temp_count);
     }
     else if (sort_choice == 2) {
         qsort(temp_computers, temp_count, sizeof(Computer), compare_gaming);
-        printf("\n=== ОТСОРТИРОВАННЫЕ ЗАПИСИ (ПО ИГРОВОМУ СТАТУСУ) ===\n");
+        printf("\n=== РћРўРЎРћР РўРР РћР’РђРќРќР«Р• Р—РђРџРРЎР (РџРћ РР“Р РћР’РћРњРЈ РЎРўРђРўРЈРЎРЈ) ===\n");
         print_all_computers(temp_computers, temp_count);
     }
     else {
-        printf("Неверный выбор!\n");
+        printf("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ!\n");
     }
 }
 
 void modify_record_in_file(void) {
     char filename[FILENAME_LEN];
-    printf("Введите имя файла: ");
+    printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°: ");
     fgets(filename, FILENAME_LEN, stdin);
     trim_string(filename);
 
@@ -625,27 +625,27 @@ void modify_record_in_file(void) {
     int temp_count = load_from_file(filename, temp_computers, MAX_RECORDS);
 
     if (temp_count == 0) {
-        printf("Файл пуст или не существует!\n");
+        printf("Р¤Р°Р№Р» РїСѓСЃС‚ РёР»Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\n");
         return;
     }
 
-    printf("\n=== Содержимое файла ===\n");
+    printf("\n=== РЎРѕРґРµСЂР¶РёРјРѕРµ С„Р°Р№Р»Р° ===\n");
     print_all_computers(temp_computers, temp_count);
 
     int index;
-    printf("Введите индекс записи для изменения (0-%d): ", temp_count - 1);
+    printf("Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ Р·Р°РїРёСЃРё РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ (0-%d): ", temp_count - 1);
     scanf("%d", &index);
     clear_input_buffer();
 
     if (index >= 0 && index < temp_count) {
-        printf("\n=== ИЗМЕНЕНИЕ ЗАПИСИ %d ===\n", index);
-        printf("Текущие данные:\n");
+        printf("\n=== РР—РњР•РќР•РќРР• Р—РђРџРРЎР %d ===\n", index);
+        printf("РўРµРєСѓС‰РёРµ РґР°РЅРЅС‹Рµ:\n");
 
         printf("+------------------------+------+-----------------+-----+------------------+----------------------+------------------+------+------+--------+\n");
-        printf("| Процессор              | ОЗУ  | Производитель   | Игр.| Семейство CPU    | Видеокарта           | ОС               | SSD  | VRAM | Частота|\n");
+        printf("| РџСЂРѕС†РµСЃСЃРѕСЂ              | РћР—РЈ  | РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ   | РРіСЂ.| РЎРµРјРµР№СЃС‚РІРѕ CPU    | Р’РёРґРµРѕРєР°СЂС‚Р°           | РћРЎ               | SSD  | VRAM | Р§Р°СЃС‚РѕС‚Р°|\n");
         printf("+------------------------+------+-----------------+-----+------------------+----------------------+------------------+------+------+--------+\n");
 
-        // Обрезаем строки для отображения
+        // РћР±СЂРµР·Р°РµРј СЃС‚СЂРѕРєРё РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
         char processor_display[26];
         char manufacturer_display[26];
         char cpu_family_display[26];
@@ -680,37 +680,37 @@ void modify_record_in_file(void) {
             temp_computers[index].cpu_clock_speed);
         printf("+------------------------+------+-----------------+-----+------------------+----------------------+------------------+------+------+--------+\n");
 
-        printf("\nВведите новые данные:\n");
+        printf("\nР’РІРµРґРёС‚Рµ РЅРѕРІС‹Рµ РґР°РЅРЅС‹Рµ:\n");
         fill_computer_data(&temp_computers[index]);
 
         save_to_file(filename, temp_computers, temp_count);
-        printf("Запись успешно изменена и сохранена в файл!\n");
+        printf("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅР° Рё СЃРѕС…СЂР°РЅРµРЅР° РІ С„Р°Р№Р»!\n");
     }
     else {
-        printf("Неверный индекс!\n");
+        printf("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ!\n");
     }
 }
 
 void add_records_to_file(void) {
     char filename[FILENAME_LEN];
-    printf("Введите имя файла: ");
+    printf("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°: ");
     fgets(filename, FILENAME_LEN, stdin);
     trim_string(filename);
 
     Computer new_computers[MAX_RECORDS];
     int new_count;
 
-    printf("Сколько новых записей добавить? ");
+    printf("РЎРєРѕР»СЊРєРѕ РЅРѕРІС‹С… Р·Р°РїРёСЃРµР№ РґРѕР±Р°РІРёС‚СЊ? ");
     scanf("%d", &new_count);
     clear_input_buffer();
 
     if (new_count <= 0) {
-        printf("Некорректное количество записей!\n");
+        printf("РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№!\n");
         return;
     }
 
     for (int i = 0; i < new_count; i++) {
-        printf("\n=== Новая запись %d из %d ===\n", i + 1, new_count);
+        printf("\n=== РќРѕРІР°СЏ Р·Р°РїРёСЃСЊ %d РёР· %d ===\n", i + 1, new_count);
         fill_computer_data(&new_computers[i]);
     }
 
@@ -725,5 +725,5 @@ void add_records_to_file(void) {
 
     save_to_file(filename, existing_computers, total_count);
 
-    printf("Успешно добавлено %d новых записей в файл '%s'\n", new_count, filename);
+    printf("РЈСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅРѕ %d РЅРѕРІС‹С… Р·Р°РїРёСЃРµР№ РІ С„Р°Р№Р» '%s'\n", new_count, filename);
 }
